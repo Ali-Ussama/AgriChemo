@@ -15,6 +15,7 @@
   "next": "التالي",
   "logout": "تسجيل الخروج",
   "language": "اللغة",
+  "choose_your_language": "اختر لغتك",
   "english": "English",
   "arabic": "العربية",
   "back": "رجوع",
@@ -56,5 +57,6 @@
   "suppliers": "الموردين",
   "add_bill": "إضافة فاتورة",
   "bills": "فواتير",
-  "more": "المزيد"
+  "more": "المزيد",
+  "settings": "الإعدادات"
 }

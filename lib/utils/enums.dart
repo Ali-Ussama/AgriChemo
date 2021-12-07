@@ -22,5 +22,11 @@ class Sources extends Enum {
   static final backOfficeSource = Sources(120);
   static final androidSource = Sources(121);
   static final iosSource = Sources(122);
+}
 
+class LanguageTypes extends Enum{
+  LanguageTypes(value) : super(value);
+
+  static final english = LanguageTypes("en");
+  static final arabic = LanguageTypes("ar");
 }
