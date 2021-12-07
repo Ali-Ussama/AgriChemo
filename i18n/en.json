@@ -15,6 +15,7 @@
   "next": "Next",
   "logout": "Logout",
   "language": "Language",
+  "choose_your_language": "Choose your language",
   "english": "English",
   "arabic": "العربية",
   "back": "Back",
@@ -57,5 +58,6 @@
   "suppliers": "Suppliers",
   "add_bill": "Add Bill",
   "bills": "bills",
-  "more": "More"
+  "more": "More",
+  "settings": "Settings"
 }
