@@ -2,14 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:tarek_agro/firebase/firebase_crashlytics.dart';
 import 'package:tarek_agro/locale/localization_provider.dart';
+import 'package:tarek_agro/providers/authenticate/authentication_provider.dart';
 import 'package:tarek_agro/singleton/settings_session.dart';
 import 'package:tarek_agro/utils/colors_utils.dart';
+import 'package:tarek_agro/view/home/home_page.dart';
+import 'package:tarek_agro/view/login/login_page.dart';
 
 import 'locale/app_localization.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [], child: const MyApp()));
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => AuthenticationProvider(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (context) => LocalProvider(),
+      lazy: false,
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -20,11 +33,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  var isUserLoggedIn = false;
+
   @override
   void initState() {
     super.initState();
+    try{
+      FirebaseCrashes.initialize();
+    }on Exception catch (e){
+      print(e);
+    }
     var localeProvider = Provider.of<LocalProvider>(context, listen: false);
     localeProvider.fetchLocale();
+    var loginProvider = Provider.of<AuthenticationProvider>(context,listen: false);
+    isUserLoggedIn = loginProvider.isUserLoggedInBefore();
   }
 
   @override
@@ -52,10 +74,14 @@ class _MyAppState extends State<MyApp> {
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: ColorsUtils.primary,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: ColorsUtils.secondary)),
-      home: Container(),
+        primaryColor: ColorsUtils.primary,
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: ColorsUtils.secondary),
+        indicatorColor: ColorsUtils.secondary,
+        backgroundColor: Colors.white,
+        disabledColor: ColorsUtils.secondaryAlpha
+      ),
+      home: isUserLoggedIn ? const HomePage() : const LoginPage(),
     );
   }
 }

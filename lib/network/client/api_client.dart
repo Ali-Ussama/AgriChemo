@@ -15,8 +15,8 @@ class ApiClient {
       HttpHeaders.contentTypeHeader: 'application/json',
       "Abp.TenantId": '1'
     };
-    mHeaders["Accept-Language"] = DataSettingsSession.instance().languageCode ?? "en";
-    mHeaders[".AspNetCore.Culture"] = DataSettingsSession.instance().languageCode ?? "en";
+    mHeaders["Accept-Language"] = DataSettingsSession.instance().languageCode;
+    mHeaders[".AspNetCore.Culture"] = DataSettingsSession.instance().languageCode;
     // loading auth token
     if (TokenUtil.getTokenFromMemory() != null && TokenUtil.getTokenFromMemory()!.isNotEmpty) {
       mHeaders[HttpHeaders.authorizationHeader] =
@@ -31,9 +31,9 @@ class ApiClient {
     try{
       //create url with (baseUrl + endPoint) and query Params if any
       Uri url = Uri(
-          scheme: ServicesURLs.development_environment_scheme,
-          host: ServicesURLs.development_environment_without_http,
-          port: ServicesURLs.development_environment_port,
+          scheme: ServicesURLs.developmentEnvironmentScheme,
+          host: ServicesURLs.developmentEnvironmentWithoutHttp,
+          port: ServicesURLs.developmentEnvironmentPort,
           path: endPoint,
           queryParameters: queryParams);
 
@@ -43,7 +43,7 @@ class ApiClient {
       //GET network request call
       final response = await http.get(url, headers: headers());
       return response;
-    }on Exception catch (e){
+    }on Exception {
       return Response("", 505,reasonPhrase: 'No Internet Connection');
     }
   }
@@ -52,13 +52,13 @@ class ApiClient {
       {bool isMultipart = false}) async {
     try{
       //create url of (baseUrl + endPoint)
-    String url = ServicesURLs.development_environment + endPoint;
+    String url = ServicesURLs.developmentEnvironment + endPoint;
     //network logger
-    print(url + "\n" + headers().toString());
+    log(url + "\n" + headers().toString());
     if (requestBody != null) log(requestBody.toString());
     //POST network request call
 
-    var response;
+    http.Response response;
     if (!isMultipart) {
       response = await http.post(Uri.parse(url),
           headers: headers(), body: requestBody);
@@ -74,7 +74,7 @@ class ApiClient {
     }
 
     return response;
-    }on Exception catch (e){
+    }on Exception {
       return Response("", 505,reasonPhrase: 'No Internet Connection');
     }
   }
