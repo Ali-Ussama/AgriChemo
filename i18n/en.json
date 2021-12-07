@@ -51,5 +51,11 @@
   "pos_reconciliation": "Point of sale reconciliation",
   "do_payment_through_pos" : "Do payments through POS ?",
   "version": "Version",
-  "home": "Home"
+  "home": "Home",
+  "warehouse": "Warehouse",
+  "clients": "Clients",
+  "suppliers": "Suppliers",
+  "add_bill": "Add Bill",
+  "bills": "bills",
+  "more": "More"
 }

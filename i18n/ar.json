@@ -50,5 +50,11 @@
   "pos_reconciliation": "تسوية نقطة البيع",
   "do_payment_through_pos" : "اجراء عمليات الدفع من خلال نقاط البيع ؟",
   "version": "الإصدار",
-  "home": "الرئيسية"
+  "home": "الرئيسية",
+  "warehouse": "المخزن",
+  "clients": "العملاء",
+  "suppliers": "الموردين",
+  "add_bill": "إضافة فاتورة",
+  "bills": "فواتير",
+  "more": "المزيد"
 }
