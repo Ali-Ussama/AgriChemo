@@ -34,9 +34,9 @@ class Error {
   get details => _details;
 
   Error({int? code, String? message, String? details}) {
-    this._code = code;
-    this._message = message;
-    this._details = details;
+    _code = code;
+    _message = message;
+    _details = details;
   }
 
   Error.fromJson(Map<String,dynamic> json) {
