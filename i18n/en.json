@@ -67,5 +67,14 @@
   "update": "Update",
   "paid": "Paid",
   "remaining": "Remaining",
-  "in_debt": "InDebt"
+  "in_debt": "InDebt",
+  "add_new_client": "Add New Client",
+  "update_client": "Update Client",
+  "add_new_supplier": "Add New Client",
+  "update_supplier": "Update Client",
+  "address": "Address",
+  "egp": "EGP",
+  "name_is_required": "Name is required",
+  "phone_is_required": "Phone is required",
+  "address_is_required": "Address is required"
 }

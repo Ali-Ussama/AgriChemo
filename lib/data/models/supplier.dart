@@ -1,4 +1,5 @@
-class Client {
+
+class Supplier{
   String? _id;
   String? _name;
   String? _phone;
@@ -21,14 +22,14 @@ class Client {
 
   double? get inDebt => _inDebt;
 
-  Client(
+  Supplier(
       {String? id,
-      String? name,
-      String? phone,
-      String? address,
-      double? paid = 0.0,
-      double? remaining = 0.0,
-      double? inDebt = 0.0}) {
+        String? name,
+        String? phone,
+        String? address,
+        double? paid = 0.0,
+        double? remaining = 0.0,
+        double? inDebt = 0.0}) {
     _id = id;
     _phone = phone;
     _name = name;
@@ -38,14 +39,14 @@ class Client {
     _inDebt = inDebt;
   }
 
-  Client.fromJson(Map<String, dynamic> json) {
-      _address = json['address'];
-      _id = json['id'];
-      _inDebt= json['inDebt'] != null ? double.parse(json['inDebt'].toString()) : null;
-      _name= json['name'];
-      _paid= json['paid'] != null ? double.parse(json['paid'].toString()) : null;
-      _phone= json['phone'];
-      _remaining= json['remaining'] != null ? double.parse(json['remaining'].toString()) : null;
+  Supplier.fromJson(Map<String, dynamic> json) {
+    _address = json['address'];
+    _id = json['id'];
+    _inDebt= json['inDebt'] != null ? double.parse(json['inDebt'].toString()) : null;
+    _name= json['name'];
+    _paid= json['paid'] != null ? double.parse(json['paid'].toString()) : null;
+    _phone= json['phone'];
+    _remaining= json['remaining'] != null ? double.parse(json['remaining'].toString()) : null;
 
   }
 

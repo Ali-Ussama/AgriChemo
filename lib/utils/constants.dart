@@ -68,4 +68,8 @@ class Constants {
 
   static String unitsCollection = "units";
 
+  static String clientsCollection = "clients";
+
+  static String suppliersCollection = "suppliers";
+
 }

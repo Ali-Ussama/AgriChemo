@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var _selectedMenuItemIndex = 0;
+  var _selectedMenuItemIndex = 2;
   var bottomNavigationItems = [
     const WareHousePage(),
     const ClientsAndSuppliersPage(),

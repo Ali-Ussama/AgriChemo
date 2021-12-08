@@ -66,5 +66,14 @@
   "update": "تعديل",
   "paid": "المدفوع",
   "remaining": "المتبقي",
-  "in_debt": "المديونية"
+  "in_debt": "المديونية",
+  "add_new_client": "إضافة عميل جديد",
+  "update_client": "تعديل بيانات عميل",
+  "add_new_supplier": "إضافة مورد جديد",
+  "update_supplier": "تعديل بيانات مورد",
+  "address": "العنوان",
+  "egp": "جنيه مصري",
+  "name_is_required": "الإسم مطلوب",
+  "phone_is_required": "رقم الهاتف مطلوب",
+  "address_is_required": "العنوان مطلوب"
 }

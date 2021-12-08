@@ -17,4 +17,11 @@ class UnitsRepo {
       value.update(unit.toJson());
     });
   }
+
+  static void updateUnit(Unit unit) async {
+    await FirebaseFirestore.instance
+        .collection(Constants.unitsCollection)
+        .doc(unit.id)
+        .update(unit.toJson());
+  }
 }
