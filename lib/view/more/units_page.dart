@@ -44,8 +44,7 @@ class _UnitsPageState extends State<UnitsPage> {
                   if (snapshot.hasError) {
                     return Expanded(
                       child: Center(
-                          child:
-                              Text("has Error: ${snapshot.error?.toString()}")),
+                          child: Text("خطأ\n ${snapshot.error?.toString()}")),
                     );
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
@@ -139,6 +138,11 @@ void showAddOrEditDialog(BuildContext context, UnitsProvider unitsProvider,
   var result =
       await showAddEditUnit(context, unitName: unit?.name) as List<String>?;
   if (result != null && result.isNotEmpty) {
-    unitsProvider.addNewUnit(result[0]);
+    if (unit == null) {
+      unitsProvider.addNewUnit(result[0]);
+    } else {
+      unit.setName(result[0]);
+      unitsProvider.updateUnit(unit);
+    }
   }
 }

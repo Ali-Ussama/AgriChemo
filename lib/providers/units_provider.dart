@@ -13,4 +13,8 @@ class UnitsProvider extends ChangeNotifier {
   void addNewUnit(String unitName){
     UnitsRepo.addUnit(Unit(id: '',name: unitName));
   }
+
+  void updateUnit(Unit unit){
+    UnitsRepo.updateUnit(unit);
+  }
 }
