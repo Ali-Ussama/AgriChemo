@@ -65,4 +65,7 @@ class Constants {
   static int POS_OPERATION_SUCCESS_CODE = 101;
 
   static int POS_OPERATION_FAILED_CODE = 102;
+
+  static String unitsCollection = "units";
+
 }

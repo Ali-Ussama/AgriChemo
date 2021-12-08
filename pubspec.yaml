@@ -54,6 +54,7 @@ dependencies:
   firebase_crashlytics: any
   firebase_analytics: any
   firebase_auth: any
+  cloud_firestore: any
 
 dev_dependencies:
   flutter_test:

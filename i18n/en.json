@@ -59,5 +59,13 @@
   "add_bill": "Add Bill",
   "bills": "bills",
   "more": "More",
-  "settings": "Settings"
+  "settings": "Settings",
+  "add_new_unit": "Add new unit",
+  "units": "Units",
+  "unit_name": "Unit name",
+  "add": "Add",
+  "update": "Update",
+  "paid": "Paid",
+  "remaining": "Remaining",
+  "in_debt": "InDebt"
 }
