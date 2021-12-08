@@ -21,4 +21,8 @@ class FirebaseAuthenticate {
     }
     return null;
   }
+
+  static void logout(){
+    FirebaseAuth.instance.signOut();
+  }
 }
