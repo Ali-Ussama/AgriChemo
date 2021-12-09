@@ -37,6 +37,13 @@ class _AddOrUpdateSupplierPageState extends State<AddOrUpdateSupplierPage> {
         titleTextStyle: const TextStyle(color: Colors.black,fontSize: 20.0),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            suppliersProvider.destroy();
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.all(16.0),

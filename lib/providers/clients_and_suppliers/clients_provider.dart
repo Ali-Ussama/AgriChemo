@@ -79,6 +79,8 @@ class ClientsProvider extends ChangeNotifier {
 
   void destroy() {
     client = null;
+    searchText = '';
+    searchController.text = '';
     nameController.text = '';
     phoneController.text = '';
     addressController.text = '';

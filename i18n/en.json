@@ -76,5 +76,21 @@
   "egp": "EGP",
   "name_is_required": "Name is required",
   "phone_is_required": "Phone is required",
-  "address_is_required": "Address is required"
+  "address_is_required": "Address is required",
+  "add_new_product": "Add New Product",
+  "product_name": "Product Name",
+  "main_unit": "Main Unit",
+  "sub_unit": "Sub Unit",
+  "sub_unit_qty_to_main_unit": "Sub unit quantity to main unit",
+  "sub_unit_price": "Sub Unit Price",
+  "unit_price": "Unit Price",
+  "supplier": "Supplier",
+  "price": "Price",
+  "expiry_date": "Expiry Date",
+  "quantity": "Quantity",
+  "expiry_date_required": "Please choose expiry date",
+  "supplier_required": "Please choose supplier",
+  "unit_required": "Please choose unit"
+
+
 }

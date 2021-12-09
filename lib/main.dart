@@ -9,6 +9,7 @@ import 'package:tarek_agro/providers/clients_and_suppliers/clients_provider.dart
 import 'package:tarek_agro/providers/clients_and_suppliers/suppliers_provider.dart';
 import 'package:tarek_agro/providers/settings/settings_provider.dart';
 import 'package:tarek_agro/providers/units_provider.dart';
+import 'package:tarek_agro/providers/warehouse/warehouse_provider.dart';
 import 'package:tarek_agro/singleton/settings_session.dart';
 import 'package:tarek_agro/utils/colors_utils.dart';
 import 'package:tarek_agro/view/home/home_page.dart';
@@ -42,6 +43,10 @@ void main() async{
     ),
     ChangeNotifierProvider(
       create: (context) => SuppliersProvider(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (context) => WarehouseProvider(),
       lazy: false,
     ),
   ], child: const MyApp()));

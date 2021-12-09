@@ -79,6 +79,8 @@ class SuppliersProvider extends ChangeNotifier{
 
   void destroy() {
     supplier = null;
+    searchText = '';
+    searchController.text = '';
     nameController.text = '';
     phoneController.text = '';
     addressController.text = '';

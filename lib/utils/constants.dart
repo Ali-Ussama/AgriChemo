@@ -72,4 +72,6 @@ class Constants {
 
   static String suppliersCollection = "suppliers";
 
+  static String productsCollection = "products";
+
 }
