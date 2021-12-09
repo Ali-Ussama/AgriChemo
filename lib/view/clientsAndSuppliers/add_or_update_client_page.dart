@@ -36,6 +36,13 @@ class _AddOrUpdateClientPageState extends State<AddOrUpdateClientPage> {
         titleTextStyle: const TextStyle(color: Colors.black,fontSize: 20.0),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            clientsProvider.destroy();
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.all(16.0),
