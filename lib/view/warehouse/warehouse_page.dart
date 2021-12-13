@@ -236,7 +236,7 @@ class ProductsList extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              warehouseProvider.getUnitName(product.unitId),
+                              product.unit?.name ?? '',
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 16.0),
                             )

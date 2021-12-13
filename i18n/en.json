@@ -26,7 +26,6 @@
   "name": "Name",
   "phone_number": "Phone No.",
   "transaction_type": "Transaction Type", "date": "Date",
-  "total": "Amount",
   "terminal_number": "Terminal No.",
   "save": "Save",
   "fuel": "Fuel",
@@ -90,7 +89,23 @@
   "quantity": "Quantity",
   "expiry_date_required": "Please choose expiry date",
   "supplier_required": "Please choose supplier",
-  "unit_required": "Please choose unit"
-
-
+  "unit_required": "Please choose unit",
+  "create_sales_bill": "Create Sales Bill",
+  "create_bill": "Crate Bill",
+  "collecting": "Collecting",
+  "add_items": "Add Items",
+  "search_item": "Search Item",
+  "total": "Total",
+  "total_bill": "Bill Total",
+  "previous_inDebt_amount": "InDebt",
+  "enter_paid_amount": "Enter Paid Amount",
+  "add_attachment": "Add Attachment",
+  "are_you_sure_to_delete": "Are you sure to delete",
+  "please_enter_paid_amount": "Please enter paid amount",
+  "are_you_sure_to_collect_money": "are you sure to collect",
+  "product_already_exists" : "Product already exists",
+  "quantity_is_required": "Enter quantity",
+  "price_is_required": "Enter price",
+  "you_cannot_sell_more_than_store_quantity": "You can't sell more than stored quantity",
+  "warning": "Warning"
 }

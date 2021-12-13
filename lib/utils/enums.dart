@@ -30,3 +30,7 @@ class LanguageTypes extends Enum{
   static final english = LanguageTypes("en");
   static final arabic = LanguageTypes("ar");
 }
+
+enum BillActions{
+ createBill,collectMoney
+}

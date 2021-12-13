@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:tarek_agro/firebase/firebase_crashlytics.dart';
 import 'package:tarek_agro/locale/localization_provider.dart';
+import 'package:tarek_agro/providers/add_bill/add_bill_provider.dart';
 import 'package:tarek_agro/providers/authenticate/authentication_provider.dart';
 import 'package:tarek_agro/providers/clients_and_suppliers/clients_provider.dart';
 import 'package:tarek_agro/providers/clients_and_suppliers/suppliers_provider.dart';
@@ -47,6 +48,10 @@ void main() async{
     ),
     ChangeNotifierProvider(
       create: (context) => WarehouseProvider(),
+      lazy: false,
+    ),
+    ChangeNotifierProvider(
+      create: (context) => AddSalesBillProvider(),
       lazy: false,
     ),
   ], child: const MyApp()));
