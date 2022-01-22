@@ -131,7 +131,9 @@ Future<dynamic> showAddEditUnit(var context, {String? unitName}) {
                         ),
                       ),
                     ),
-                    Row(
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                       Expanded(
@@ -142,12 +144,15 @@ Future<dynamic> showAddEditUnit(var context, {String? unitName}) {
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              child: Text(locale.translate('cancel') ?? ''),
+                              child: Text(
+                                locale.translate('cancel') ?? '',
+                                style: const TextStyle(
+                                    color: ColorsUtils.secondary,
+                                    fontWeight: FontWeight.bold),
+                              ),
                               style: TextButton.styleFrom(
-                                  padding: const EdgeInsets.all(0),
-                                  textStyle: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                      color: ColorsUtils.secondary)),
+                                  side: const BorderSide(
+                                      color: Colors.grey, width: 1)),
                             )
                           ],
                       ),),
@@ -160,7 +165,7 @@ Future<dynamic> showAddEditUnit(var context, {String? unitName}) {
                           child: Text(unitName == null ? locale.translate('add') ?? '' : locale.translate('update') ?? ''),
                           style: ElevatedButton.styleFrom(primary: ColorsUtils.secondary,padding: const EdgeInsets.all(8.0)),
                         ),))
-                    ],)
+                    ],),)
                   ],
                 ),
               ));

@@ -82,7 +82,7 @@ class WarehouseProvider extends ChangeNotifier{
       name: nameController.text,
       expDate: DateUtil.formatDate(DateUtil.SlashShortDateFormat, _expiryDate!),
       supplierId: _supplier?.id,
-      unitId: _unit?.id,
+      units: _unit,
       quantity: quantityController.text.isNotEmpty ? int.parse(quantityController.text) : 0,
       price: priceController.text.isNotEmpty ? double.parse(priceController.text) : 0.0
     ));
@@ -124,12 +124,5 @@ class WarehouseProvider extends ChangeNotifier{
   bool isValidSupplier() => _supplier != null;
 
   bool isValidUnit() => _unit != null;
-
-  String getUnitName(String? unitId) {
-    if(units.isNotEmpty && unitId != null){
-      return (units.firstWhere((element) => unitId == element.id)).name ?? '';
-    }
-    return '';
-  }
 
 }

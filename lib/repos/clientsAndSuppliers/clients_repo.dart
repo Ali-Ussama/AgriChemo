@@ -23,4 +23,11 @@ class ClientsRepo {
         .doc(client.id)
         .update(client.toJson());
   }
+
+  static void collectMoney(Client client) {
+    FirebaseFirestore.instance
+        .collection(Constants.clientsCollection)
+        .doc(client.id)
+        .update(client.toJson());
+  }
 }

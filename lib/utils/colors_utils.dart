@@ -9,4 +9,5 @@ class ColorsUtils {
   static const secondary = Color(0xff099042);
   static const secondaryAlpha = Color(0x32099042);
   static Color? alphaBlue = Colors.blueGrey.shade50;
+  static const petroleumBlue = Color(0xff095890);
 }

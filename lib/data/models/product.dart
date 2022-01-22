@@ -1,3 +1,5 @@
+import 'package:tarek_agro/data/models/unit.dart';
+
 /// id : ""
 /// name : ""
 /// exp_date : ""
@@ -10,7 +12,7 @@ class Product {
     String? name,
     String? expDate,
     String? supplierId,
-    String? unitId,
+    Unit? units,
     int? quantity,
     double? price,
   }) {
@@ -18,7 +20,7 @@ class Product {
     _name = name;
     _expDate = expDate;
     _supplierId = supplierId;
-    _unitId = unitId;
+    _units = units;
     _quantity = quantity;
     _price = price;
   }
@@ -28,7 +30,7 @@ class Product {
     _name = json['name'];
     _expDate = json['exp_date'];
     _supplierId = json['supplier_id'];
-    _unitId = json['unit_id'];
+    _units = Unit.fromJson(json['unit']);
     _quantity = json['quantity'];
     _price = json['price'];
   }
@@ -37,7 +39,7 @@ class Product {
   String? _name;
   String? _expDate;
   String? _supplierId;
-  String? _unitId;
+  Unit? _units;
   int? _quantity;
   double? _price;
 
@@ -49,7 +51,7 @@ class Product {
 
   String? get supplierId => _supplierId;
 
-  String? get unitId => _unitId;
+  Unit? get unit => _units;
 
   int? get quantity => _quantity;
 
@@ -61,7 +63,7 @@ class Product {
     map['name'] = _name;
     map['exp_date'] = _expDate;
     map['supplier_id'] = _supplierId;
-    map['unit_id'] = _unitId;
+    map['unit'] = _units?.toJson();
     map['quantity'] = _quantity;
     map['price'] = _price;
 
@@ -92,7 +94,7 @@ class Product {
     _price = value;
   }
 
-  set setUnitId(String value) {
-    _unitId = value;
+  set setUnit(Unit? value) {
+    _units = value;
   }
 }
