@@ -78,6 +78,7 @@
   "address_is_required": "العنوان مطلوب",
   "add_new_product": "إضافة صنف جديدة",
   "product_name": "إسم الصنف",
+  "unit": "الوحدة",
   "main_unit": "الوحدة الرئيسية",
   "sub_unit": "الوحدة الفرعية",
   "sub_unit_qty_to_main_unit": "عدد الوحدات الفرعية في الوحدة الرئيسية",

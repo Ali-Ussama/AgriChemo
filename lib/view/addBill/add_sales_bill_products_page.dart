@@ -56,7 +56,7 @@ class _AddSalesBillProductsPageState extends State<AddSalesBillProductsPage> {
           margin: const EdgeInsets.only(top: 16.0),
           child: Column(
             children: [
-              const SearchProductWidget(),
+              SearchProductWidget(),
               ProductsList(),
               Container(
                 height: 12,
@@ -78,14 +78,15 @@ class _AddSalesBillProductsPageState extends State<AddSalesBillProductsPage> {
 }
 
 class SearchProductWidget extends StatelessWidget {
-  const SearchProductWidget({Key? key}) : super(key: key);
+    SearchProductWidget({Key? key}) : super(key: key);
 
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var locale = AppLocalization.of(context);
     var addBillProvider = Provider.of<AddSalesBillProvider>(context);
     return Container(
-      margin: const EdgeInsets.only(left: 24.0, right: 24.0),
+      margin: const EdgeInsets.only(left: 16.0, right: 16.0),
       child: Autocomplete<Product>(
         displayStringForOption: _displayStringForProduct,
         fieldViewBuilder: _fieldViewBuilder,
@@ -100,6 +101,7 @@ class SearchProductWidget extends StatelessWidget {
         },
         onSelected: (Product selection) {
           if (!addBillProvider.isListContainsThisProduct(selection)) {
+            _controller.text = '';
             addBillProvider.addProductToList(selection);
           } else {
             showAlertDialog(context,
@@ -118,6 +120,7 @@ class SearchProductWidget extends StatelessWidget {
       FocusNode focusNode,
       VoidCallback onFieldSubmitted) {
     var locale = AppLocalization.of(context);
+    _controller = textEditingController;
     return TextField(
       focusNode: focusNode,
       controller: textEditingController,
@@ -192,6 +195,8 @@ class SearchProductWidget extends StatelessWidget {
 }
 
 class ProductsList extends StatelessWidget {
+  const ProductsList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var locale = AppLocalization.of(context);
@@ -273,9 +278,9 @@ class ProductsList extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 margin: const EdgeInsets.only(
-                                    top: 16.0,
-                                    left: 16,
-                                    right: 16,
+                                    top: 8.0,
+                                    left: 8,
+                                    right: 8,
                                     bottom: 16.0),
                                 child: Row(
                                   children: [
@@ -340,9 +345,9 @@ class ProductsList extends StatelessWidget {
                             Expanded(
                               child: Container(
                                 margin: const EdgeInsets.only(
-                                    top: 16.0,
-                                    left: 16,
-                                    right: 16,
+                                    top: 8.0,
+                                    left: 8,
+                                    right: 8,
                                     bottom: 16.0),
                                 child: Row(
                                   children: [
@@ -394,13 +399,13 @@ class ProductsList extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                            )
+                            ),
+                            addBillProvider.allUnits.isNotEmpty
+                                ? Expanded(child: ChooseUnit(product: product))
+                                : Container(),
                           ],
                         ),
                       ),
-                      addBillProvider.allUnits.isNotEmpty
-                          ? ChooseUnit(product: product)
-                          : Container(),
                     ],
                   ),
                 );
@@ -429,23 +434,14 @@ class _ChooseUnitState extends State<ChooseUnit> {
       children: [
         Expanded(
           child: Container(
-            padding: const EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
-            margin: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+            padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+            margin: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
             decoration: BoxDecoration(
                 border: Border.all(
                     color: Colors.grey, width: 1, style: BorderStyle.solid),
                 borderRadius: const BorderRadius.all(Radius.circular(12.0))),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      locale.translate('main_unit') ?? '',
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 12.0),
-                    ),
-                  ],
-                ),
                 Row(
                   children: [
                     Expanded(
@@ -494,7 +490,7 @@ class Total extends StatelessWidget {
           Expanded(
             child: Text(
               locale.translate('total') ?? '',
-              style: TextStyle(
+              style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20.0,
                   color: ColorsUtils.petroleumBlue),
@@ -528,7 +524,7 @@ class NextButton extends StatelessWidget {
           Expanded(
               child: ElevatedButton(
             onPressed: () {
-              if (addBillProvider.isAllValid()) {
+              if (addBillProvider.isAddItemsAllValid()) {
                 navigateToSalesBillReviewPage(context);
               }
             },

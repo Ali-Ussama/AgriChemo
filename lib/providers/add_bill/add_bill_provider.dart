@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tarek_agro/data/models/client.dart';
 import 'package:tarek_agro/data/models/product.dart';
@@ -101,13 +100,13 @@ class AddSalesBillProvider extends ChangeNotifier {
   void addProductToList(Product? product) {
     if (product != null) {
       addedProducts.add(Product(
-        id: product.id,
-        name: product.name,
-        expDate: product.expDate,
-        supplierId: product.supplierId,
-        units: product.unit,
-        price: product.price
-      ));
+          id: product.id,
+          name: product.name,
+          expDate: product.expDate,
+          supplierId: product.supplierId,
+          units: product.unit,
+          price: product.price,
+          quantity: 1));
     }
     notifyListeners();
   }
@@ -156,11 +155,12 @@ class AddSalesBillProvider extends ChangeNotifier {
     return total;
   }
 
-  bool isValidQuantity(String productId,String quantity){
+  bool isValidQuantity(String productId, String quantity) {
     var isValid = false;
     for (var originalProduct in allProducts) {
-      if(productId == originalProduct.id){
-        isValid = originalProduct.quantity != null && originalProduct.quantity! >= int.parse(quantity);
+      if (productId == originalProduct.id) {
+        isValid = originalProduct.quantity != null &&
+            originalProduct.quantity! >= int.parse(quantity);
       }
     }
     return isValid;
@@ -177,11 +177,14 @@ class AddSalesBillProvider extends ChangeNotifier {
   }
 
   void initializeNewAddProductControllers(Product product, int index) {
-    if (amountControllers.length <= index ){
-      amountControllers.add(TextEditingController(text: "${product.price != null ? 1 : ''}"));
+    if (amountControllers.length <= index) {
+      amountControllers.add(
+          TextEditingController(text: "${product.price != null ? 1 : ''}"));
     }
-    if (priceControllers.length <= index ){
-      priceControllers.add(TextEditingController(text: "${product.price != null && product.price! > 0 ? product.price : ''}"));
+    if (priceControllers.length <= index) {
+      priceControllers.add(TextEditingController(
+          text:
+              "${product.price != null && product.price! > 0 ? product.price : ''}"));
     }
   }
 
@@ -194,10 +197,11 @@ class AddSalesBillProvider extends ChangeNotifier {
     priceControllers = [];
   }
 
-  bool isAllValid() {
+  bool isAddItemsAllValid() {
     var isValid = true;
-    if(productsFormKey.currentState != null && !productsFormKey.currentState!.validate()) isValid = false;
-    if(!isValidAddedProducts()) isValid = false;
+    if (productsFormKey.currentState != null &&
+        !productsFormKey.currentState!.validate()) isValid = false;
+    if (!isValidAddedProducts()) isValid = false;
     return isValid;
   }
 
@@ -210,6 +214,28 @@ class AddSalesBillProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void destroyReviewPageData() {}
+  ///---------------- Review & Save ---------------------------
+  TextEditingController paidAmountController = TextEditingController();
+  List<String> attachments = [];
+  var reviewFormKey = GlobalKey<FormState>();
 
+  double getInDebtAmount() {
+    return _client?.inDebt ?? 0;
+  }
+
+  bool isReviewPageAllValid() {
+    var isValid = true;
+    if (!reviewFormKey.currentState!.validate()) isValid = false;
+    return isValid;
+  }
+
+  void addAttachment(String url) {
+    attachments.add(url);
+    notifyListeners();
+  }
+
+  void destroyReviewPageData() {
+    paidAmountController.text = '';
+    attachments = [];
+  }
 }

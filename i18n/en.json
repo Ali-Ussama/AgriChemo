@@ -78,6 +78,7 @@
   "address_is_required": "Address is required",
   "add_new_product": "Add New Product",
   "product_name": "Product Name",
+  "unit": "Unit",
   "main_unit": "Main Unit",
   "sub_unit": "Sub Unit",
   "sub_unit_qty_to_main_unit": "Sub unit quantity to main unit",
