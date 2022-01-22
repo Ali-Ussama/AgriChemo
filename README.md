@@ -1,7 +1,6 @@
 # Sales App
 
-A new Flutter project.
-# Data Chack
+A Flutter project.
 
 Screenshots
 -------------
