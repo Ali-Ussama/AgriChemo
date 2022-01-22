@@ -22,28 +22,28 @@ class NetworkCall {
             isMultipart: isMultipart));
       }
 
-      if (response.statusCode == NetworkStatusCodes.OK_200.value) {
+      if (response.statusCode == NetworkStatusCodes.ok200.value) {
             //Api logger
             log("Api Response: ${response.body}");
             return jsonDecode(response.body) as Map<String, dynamic>;
           } else if (response.statusCode ==
-              NetworkStatusCodes.ServerInternalError.value || response.statusCode == NetworkStatusCodes.BadRequest.value) {
+              NetworkStatusCodes.serverInternalError.value || response.statusCode == NetworkStatusCodes.badRequest.value) {
             //Api logger
-            print(
+            log(
                 "API Error: ${response.statusCode} - ${response.reasonPhrase} - ${response.body}");
             return jsonDecode(response.body) as Map<String, dynamic>;
-          } else if(response.statusCode == NetworkStatusCodes.UnAuthorizedUser.value){
+          } else if(response.statusCode == NetworkStatusCodes.unAuthorizedUser.value){
 
         var result = jsonDecode(response.body) as Map<String, dynamic>;
         result['error']['code'] = response.statusCode;
 
         //Api logger
-        print(
+        log(
             "API Error: ${response.statusCode} - ${response.reasonPhrase} - $result");
         return result;
       }else {
             //Api logger
-            print(
+        log(
                 "API Error: ${response.statusCode} - ${response.reasonPhrase} - ${response.body}");
             return {
               "success": false,

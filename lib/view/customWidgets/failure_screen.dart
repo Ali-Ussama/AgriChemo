@@ -52,7 +52,7 @@ showFailureScreen(
                   ],
                 )),
             Container(
-              margin: EdgeInsets.all(32.0),
+              margin: const EdgeInsets.all(32.0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
@@ -110,7 +110,7 @@ showFailureScreen(
                             ((errorCode != null &&
                                     errorCode ==
                                         NetworkStatusCodes
-                                            .UnAuthorizedUser.value)
+                                            .unAuthorizedUser.value)
                                 ? local.translate('login') ??
                                     local.translate('retry') ??
                                     ""
@@ -122,7 +122,7 @@ showFailureScreen(
                         log("error code: $errorCode");
                         if (errorCode != null &&
                             errorCode ==
-                                NetworkStatusCodes.UnAuthorizedUser.value) {
+                                NetworkStatusCodes.unAuthorizedUser.value) {
                           TokenUtil.clearToken();
                           Navigator.pop(context);
                           //TODO UnAuthorized Error navigate to login page

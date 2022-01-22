@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "30656038639",
+    "project_id": "tarekagro-1",
+    "storage_bucket": "tarekagro-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30656038639:android:686fe78bfcb92f7897fd1a",
+        "android_client_info": {
+          "package_name": "com.tarek.agro.tarek_agro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30656038639-loddhskf2u5dh2lkebehhsa9labemme1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXyr3fZLcG9WsZo_UMuX5VwvG3Z5T1oFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30656038639-loddhskf2u5dh2lkebehhsa9labemme1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
