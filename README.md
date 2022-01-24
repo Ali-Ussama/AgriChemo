@@ -7,12 +7,6 @@ Screenshots
 
 <img src="screenshots/screen_1.png" height="1000" alt="Screenshot"/>
 
-## Description:
-
-### Data Check is :
-An App that could help SEC of saudi arabia to review Surveying business company delivered spatial data, taking notes and also taking photos of each signle spatial data
-
-
 ### Our goal is:
 - Store management (Amount of each product)
 - Adding or removing products
